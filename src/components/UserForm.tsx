@@ -41,50 +41,82 @@ export const UserForm = () => {
     };
 
     return (
-        <div>
-            <label htmlFor="localidad" className="block mb-2">
-                Localidad
+        <form
+            action=""
+            className="flex flex-col gap-1 w-2/8 h-full p-4 shadow-md rounded-2xl border border-gray-300">
+            <h1 className="font-bold text-2xl mb-3">Registro de usuarios</h1>
+
+            <div className="flex flex-col gap-2">
+                <label htmlFor="nombre" className="labels-form">
+                    Nombre
+                    <input type="text" name="nombre" className="input-form" />
+                </label>
+                <label htmlFor="apellidos" className="labels-form">
+                    Apellidos
+                    <input
+                        type="text"
+                        name="apellidos"
+                        className="input-form"
+                    />
+                </label>
+                <label htmlFor="direccion" className="labels-form">
+                    Dirección
+                    <input
+                        type="text"
+                        name="direccion"
+                        className="input-form"
+                    />
+                </label>
+            </div>
+
+            <label htmlFor="localidad" className="labels-form">
+                Localidad:
+                {localidades.length > 0 ? (
+                    <select
+                        id="localidad"
+                        value={selectedLocalidad}
+                        onChange={handleLocalidadChange}
+                        className="select-form">
+                        <option value="0">Selecciona la localidad</option>
+                        {localidades.map((localidad) => (
+                            <option
+                                key={localidad.clave}
+                                value={localidad.nombre}
+                                className="text-black">
+                                {localidad.nombre || "Sin nombre"}
+                            </option>
+                        ))}
+                    </select>
+                ) : (
+                    <p className="font-normal">Cargando las localidades ...</p>
+                )}
             </label>
-            {localidades.length > 0 ? (
-                <select
-                    id="localidad"
-                    value={selectedLocalidad}
-                    onChange={handleLocalidadChange}
-                    className="text-black w-full p-2 border">
-                    <option value="0">Selecciona la localidad</option>
-                    {localidades.map((localidad) => (
-                        <option
-                            key={localidad.clave}
-                            value={localidad.nombre}
-                            className="text-black">
-                            {localidad.nombre || "Sin nombre"}
-                        </option>
-                    ))}
-                </select>
-            ) : (
-                <p>Cargando las localidades</p>
-            )}
 
-            <label htmlFor="municipio">Municipio:</label>
+            <label htmlFor="municipio" className="labels-form">
+                Municipio:
+                {municipios.length > 0 ? (
+                    <select id="municipio" className="select-form">
+                        <option value="0"> Selecciona un municipio</option>
 
-            {municipios.length > 0 ? (
-                <select
-                    id="municipio"
-                    className="text-black w-full p-2 border">
-                      <option value="0"> Selecciona un municipio</option>
-                    
-                      {municipios.map((municipio)=> (
-                        <option key={municipio.clave} value={municipio.nombre}>
-                            {municipio.nombre || "Sin nombre"}
-                        </option>
-                      ) )}  
-                </select>
-            ) : (
-                <p>
-                    Selecciona una localidad, para poder seleccionar un
-                    municipio
-                </p>
-            )}
-        </div>
+                        {municipios.map((municipio) => (
+                            <option
+                                key={municipio.clave}
+                                value={municipio.nombre}>
+                                {municipio.nombre || "Sin nombre"}
+                            </option>
+                        ))}
+                    </select>
+                ) : (
+                    <p className="font-normal">
+                        Selecciona una localidad, para poder seleccionar un
+                        municipio
+                    </p>
+                )}
+            </label>
+
+            <button type="submit" className="bg-blue-500 text-white py-1 px2 rounded-full underline-none cursor-pointer">
+                Enviar
+            </button>
+        </form>
     );
 };

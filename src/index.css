@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+.input-form {
+    @apply w-full border-black/50 border-2 rounded-lg px-2 py-1; 
+}
+
+.labels-form {
+    @apply font-medium tracking-wide;
+}
+
+.select-form {
+    @apply w-full rounded-lg border-black/50 border-2 px-2 py-1 font-normal;
+}

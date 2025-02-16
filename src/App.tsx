@@ -4,9 +4,6 @@ function App() {
 
   return (
     <>
-      <h1>
-          Registro de usuarios
-      </h1>
       <UserForm />
     </>
   )
