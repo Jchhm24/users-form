@@ -13,7 +13,19 @@ export interface Municipio {
     nombre: string;
 }
 
-// lo que imprime el console.log
+export interface User{
+    id:number
+    nombre:string
+    apellidos:string
+    direccion:string
+    localidad:string
+    municipio:string
+}
 
-//clave: "310010001"
-//nombre: "Abalá"
+export interface FormState{
+    nombre:string
+    apellidos:string
+    direccion:string
+    localidad:string
+    municipio:string
+}
