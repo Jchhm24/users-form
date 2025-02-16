@@ -80,6 +80,8 @@ export const UserForm = () => {
             setMunicipios([]);
 
             addUser(response);
+
+            // alert("EL usuario ha sido creado correctamente");
         } catch (error) {
             console.error("Error al crear el usuario:", error);
         }
@@ -88,7 +90,7 @@ export const UserForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-1 w-2/8 h-full p-4 shadow-md rounded-2xl border border-gray-300">
+            className="flex flex-col gap-1 max-w-2/8 h-full p-4 shadow-md rounded-2xl border border-gray-300 flex-1">
             <h1 className="font-bold text-2xl mb-3">Registro de usuarios</h1>
 
             <div className="flex flex-col gap-2">
